@@ -10,7 +10,6 @@
 
 #include <iostream>
 #include <list>
-#include <unordered_set>
 #include <vector>
 
 class Pr
@@ -39,11 +38,12 @@ class Pr
 			void print_container(const T& c)
 			{
 				std::cout << "[ ";
-				bool isFirst = true;
-				for (const auto& e : c) {
-					if (isFirst)
+				bool is_first = true;
+				for (const auto& e : c)
+				{
+					if (is_first)
 					{
-						isFirst = false;
+						is_first = false;
 					}
 					else
 					{

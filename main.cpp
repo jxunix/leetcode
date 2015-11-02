@@ -6,15 +6,19 @@
  */
 
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
-#include "aux.hpp"
+
+#include "p.hpp"
+#include "pr.hpp"
 #include "valid_sudoku.cpp"
 
 using namespace std;
 
 Solution s;
-Aux aux;
+P p;
+Pr pr;
 
 int main()
 {
@@ -27,7 +31,8 @@ int main()
 		board.push_back(row);
 	}
 
-	aux.print(board);
+	p.print(board);
+	cout << s.isValidSudoku(board) << endl;
 
 	return 0;
 }

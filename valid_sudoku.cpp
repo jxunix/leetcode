@@ -14,135 +14,68 @@ using namespace std;
 
 class Solution {
 	public:
-		bool isValidSudoku(vector<vector<char> >& board)
+		bool isValidSudoku(vector<vector<char> > &board)
 		{
-			return isValidPerRow(board) && isValidPerCol(board) && isValidPerGrid(board);
-		}
+			map<char, bool> row;
+			map<char, bool> col;
+			map<char, bool> block;
 
-	private:
-		bool isValidPerRow(vector<vector<char> >& board)
-		{
-			for (auto r : board)
+			for (size_t i = 0; i < 9; i++)
 			{
-				if (!isValidRow(r))
+				col.clear();
+				row.clear();
+
+				for (size_t j = 0; j < 9; j++)
 				{
-					return false;
+					if (board[i][j] != '.')
+					{
+						if (col[board[i][j]])
+						{
+							return false;
+						}
+						else
+						{
+							col[board[i][j]] = true;
+						} 
+					}
+
+					if (board[j][i] != '.')
+					{
+						if (row[board[j][i]])
+						{
+							return false;
+						}
+						else
+						{
+							row[board[j][i]] = true;
+						} 
+					}
 				}
 			}
 
-			return true;
-		}
-
-		bool isValidRow(vector<char>& row)
-		{
-			map<char, int> mapping;
-
-			for (auto i : row)
+			for (size_t ii = 0; ii < 9; ii += 3)
 			{
-				if (i == '.')
+				for (size_t jj = 0; jj < 9; jj += 3)
 				{
-					continue;
-				}
-				else if (i >= '1' && i <= '9')
-				{
-					if (mapping[i] > 1)
+					block.clear();
+
+					for (size_t i = ii; i < ii+3; i++)
 					{
-						return false;
-					}
-					else
-					{
-						mapping[i]++;
-					}
-				}
-				else
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		bool isValidPerCol(vector<vector<char> >& board)
-		{
-			for (auto c : board)
-			{
-				if (!isValidCol(c))
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		bool isValidCol(vector<char>& col)
-		{
-			map<char, int> mapping;
-
-			for (auto i : col)
-			{
-				if (i == '.')
-				{
-					continue;
-				}
-				else if (i >= '1' && i <= '9')
-				{
-					if (mapping[i] > 1)
-					{
-						return false;
-					}
-					else
-					{
-						mapping[i]++;
-					}
-				}
-				else
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		bool isValidPerGrid(vector<vector<char> >& board)
-		{
-			for (auto g : board)
-			{
-				if (!isValidGrid(g))
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		bool isValidGrid(vector<char>& grid)
-		{
-			map<char, int> mapping;
-
-			for (auto i : grid)
-			{
-				if (i == '.')
-				{
-					continue;
-				}
-				else if (i >= '1' && i <= '9')
-				{
-					if (mapping[i] > 1)
-					{
-						return false;
-					}
-					else
-					{
-						mapping[i]++;
-					}
-				}
-				else
-				{
-					return false;
+						for (size_t j = jj; j < jj+3; j++)
+						{
+							if (board[i][j] != '.')
+							{
+								if (block[board[i][j]])
+								{
+									return false;
+								}
+								else
+								{
+									block[board[i][j]] = true;
+								} 
+							}
+						}
+					}        
 				}
 			}
 
