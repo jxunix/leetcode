@@ -12,7 +12,7 @@
 
 #include "p.hpp"
 #include "pr.hpp"
-#include "valid_sudoku.cpp"
+#include "sudoku_solver.cpp"
 
 using namespace std;
 
@@ -22,7 +22,16 @@ Pr pr;
 
 int main()
 {
-	string board_array[] = {"..4...63.",".........","5......9.","...56....","4.3.....1","...7.....","...5.....",".........","........."};
+	string board_array[] = {
+		"53..7....",
+		"6..195...",
+		".98....6.",
+		"8...6...3",
+		"4..8.3..1",
+		"7...2...6",
+		".6....28.",
+		"...419..5",
+		"....8..79"};
 	vector<vector<char> > board;
 
 	for (auto i : board_array)
@@ -31,8 +40,12 @@ int main()
 		board.push_back(row);
 	}
 
+	cout << "before:" << endl;
 	p.print(board);
-	cout << s.isValidSudoku(board) << endl;
+	s.solveSudoku(board);
+
+	cout << "after:" << endl;
+	p.print(board);
 
 	return 0;
 }
