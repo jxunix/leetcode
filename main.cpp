@@ -12,7 +12,7 @@
 
 #include "p.hpp"
 #include "pr.hpp"
-#include "sudoku_solver.cpp"
+#include "minimum_window_substring.cpp"
 
 using namespace std;
 
@@ -22,30 +22,10 @@ Pr pr;
 
 int main()
 {
-	string board_array[] = {
-		"53..7....",
-		"6..195...",
-		".98....6.",
-		"8...6...3",
-		"4..8.3..1",
-		"7...2...6",
-		".6....28.",
-		"...419..5",
-		"....8..79"};
-	vector<vector<char> > board;
+	string S = "ADOBECODEBANC";
+	string T = "ABC";
 
-	for (auto i : board_array)
-	{
-		vector<char> row (i.begin(), i.end());
-		board.push_back(row);
-	}
-
-	cout << "before:" << endl;
-	p.print(board);
-	s.solveSudoku(board);
-
-	cout << "after:" << endl;
-	p.print(board);
+	cout << s.minWindow(S, T) << endl;
 
 	return 0;
 }

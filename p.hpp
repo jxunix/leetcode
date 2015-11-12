@@ -60,6 +60,17 @@ class P
 				}
 				std::cout << "]" << std::endl;
 			}
+
+		template <typename K, typename V>
+			void print(const std::map<K, V>& m)
+			{
+				std::cout << "[" << std::endl;
+				for (const auto& e : m)
+				{
+					std::cout << "  " << e.first << "\t" << e.second << std::endl;
+				}
+				std::cout << "]" << std::endl;
+			}
 };
 
 #endif
