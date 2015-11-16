@@ -12,7 +12,7 @@
 
 #include "p.hpp"
 #include "pr.hpp"
-#include "minimum_window_substring.cpp"
+#include "maximal_rectangle.cpp"
 
 using namespace std;
 
@@ -22,10 +22,10 @@ Pr pr;
 
 int main()
 {
-	string S = "ADOBECODEBANC";
-	string T = "ABC";
-
-	cout << s.minWindow(S, T) << endl;
+	int m = 5;
+	int n = 4;
+	vector<vector<int> > heights (m, vector<int> (n, 0));
+	p.print(heights);
 
 	return 0;
 }
