@@ -12,20 +12,22 @@
 
 #include "p.hpp"
 #include "pr.hpp"
-#include "maximal_rectangle.cpp"
+#include "point.hpp"
+#include "random_list_node.hpp"
+#include "tree_node.hpp"
+#include "count_primes.cpp"
 
 using namespace std;
 
-Solution s;
 P p;
 Pr pr;
+TreeNode* root;
+RandomListNode *rnode;
+Solution s;
 
 int main()
 {
-	int m = 5;
-	int n = 4;
-	vector<vector<int> > heights (m, vector<int> (n, 0));
-	p.print(heights);
+	cout << s.countPrimes(499979) << endl;
 
 	return 0;
 }
