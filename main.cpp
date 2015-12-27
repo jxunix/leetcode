@@ -13,9 +13,10 @@
 #include "p.hpp"
 #include "pr.hpp"
 #include "point.hpp"
+#include "listNode.cpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
-#include "count_primes.cpp"
+#include "addTwoNumbers.cpp"
 
 using namespace std;
 
@@ -27,7 +28,23 @@ Solution s;
 
 int main()
 {
-	cout << s.countPrimes(499979) << endl;
+	ListNode* l1 = new ListNode(2);
+	l1->next = new ListNode(4);
+	l1->next->next = new ListNode(3);
+
+	ListNode* l2 = new ListNode(5);
+	l2->next = new ListNode(6);
+	l2->next->next = new ListNode(4);
+
+	ListNode* res = s.addTwoNumbers(l1, l2);
+
+	cout << "[ ";
+	while (res)
+	{
+		cout << res->val << " ";
+		res = res->next;
+	}
+	cout << "]";
 
 	return 0;
 }
