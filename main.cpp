@@ -16,7 +16,7 @@
 #include "listNode.cpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
-#include "addTwoNumbers.cpp"
+#include "removeNthNodeFromEndOfList.cpp"
 
 using namespace std;
 
@@ -28,23 +28,30 @@ Solution s;
 
 int main()
 {
-	ListNode* l1 = new ListNode(2);
-	l1->next = new ListNode(4);
-	l1->next->next = new ListNode(3);
+	ListNode* head = new ListNode(1);
+	head->next = new ListNode(2);
+	head->next->next = new ListNode(3);
+	head->next->next->next = new ListNode(4);
+	head->next->next->next->next = new ListNode(5);
 
-	ListNode* l2 = new ListNode(5);
-	l2->next = new ListNode(6);
-	l2->next->next = new ListNode(4);
-
-	ListNode* res = s.addTwoNumbers(l1, l2);
-
+	ListNode* p = head;
 	cout << "[ ";
-	while (res)
+	while (p != NULL)
 	{
-		cout << res->val << " ";
-		res = res->next;
+		cout << p->val << " ";
+		p = p->next;
 	}
-	cout << "]";
+	cout << "]" << endl;
+
+	ListNode* res = s.removeNthFromEnd(head, 3);
+	p = res;
+	cout << "[ ";
+	while (p != NULL)
+	{
+		cout << p->val << " ";
+		p = p->next;
+	}
+	cout << "]" << endl;
 
 	return 0;
 }

@@ -22,6 +22,21 @@ using namespace std;
 class Solution {
 	public:
 		ListNode* removeNthFromEnd(ListNode* head, int n) {
+			ListNode* p1 = head;
+			ListNode* p2 = head;
 
+			for (int i = 0; i < n; i++)
+			{
+				p1 = p1->next;
+			}
+
+			while (p1 != NULL && p1->next != NULL)
+			{
+				p1 = p1->next;
+				p2 = p2->next;
+			}
+
+			p2->next = p2->next->next;
+			return head;
 		}
 };
