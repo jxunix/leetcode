@@ -16,7 +16,7 @@
 #include "listNode.cpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
-#include "removeNthNodeFromEndOfList.cpp"
+#include "mergeTwoSortedLists.cpp"
 
 using namespace std;
 
@@ -28,13 +28,15 @@ Solution s;
 
 int main()
 {
-	ListNode* head = new ListNode(1);
-	head->next = new ListNode(2);
-	head->next->next = new ListNode(3);
-	head->next->next->next = new ListNode(4);
-	head->next->next->next->next = new ListNode(5);
+	ListNode* head1 = new ListNode(1);
+	head1->next = new ListNode(3);
+	head1->next->next = new ListNode(5);
+	ListNode* head2 = new ListNode(2);
+	head2->next = new ListNode(4);
+	head2->next->next = new ListNode(6);
 
-	ListNode* p = head;
+	cout << "head1: ";
+	ListNode* p = head1;
 	cout << "[ ";
 	while (p != NULL)
 	{
@@ -43,7 +45,17 @@ int main()
 	}
 	cout << "]" << endl;
 
-	ListNode* res = s.removeNthFromEnd(head, 3);
+	cout << "head2: ";
+	p = head2;
+	cout << "[ ";
+	while (p != NULL)
+	{
+		cout << p->val << " ";
+		p = p->next;
+	}
+	cout << "]" << endl;
+	ListNode* res = s.mergeTwoLists(head1, head2);
+
 	p = res;
 	cout << "[ ";
 	while (p != NULL)
