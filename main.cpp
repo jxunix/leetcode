@@ -13,7 +13,7 @@
 #include "p.hpp"
 #include "pr.hpp"
 #include "point.hpp"
-#include "listNode.cpp"
+#include "listNode.hpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
 #include "reverseLinkedListII.cpp"
