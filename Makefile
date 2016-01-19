@@ -4,7 +4,7 @@ BUILDID=$(shell date +%Y%m%d-%H:%M:%S)
 .PHONY: push pull
 
 push:
-	git add *
+	git add -A *
 	git commit -m 'Automatic commit of successful build $(BUILDID)'
 	git push origin master
 
