@@ -16,7 +16,7 @@
 #include "listNode.hpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
-#include "reverseLinkedListII.cpp"
+#include "palindromeLinkedList.cpp"
 
 using namespace std;
 
@@ -29,12 +29,10 @@ Solution s;
 int main()
 {
 	ListNode* head = new ListNode(1);
-	head->next = new ListNode(2);
-	//head->next->next = new ListNode(3);
+	head->next = new ListNode(0);
+	head->next->next = new ListNode(0);
 	//head->next->next->next = new ListNode(4);
 	//head->next->next->next->next = new ListNode(5);
-	int m = 1;
-	int n = 1;
 
 	ListNode* p = head;
 	cout << "[ ";
@@ -45,16 +43,17 @@ int main()
 	}
 	cout << "]" << endl;
 
-	ListNode* res = s.reverseBetween(head, m, n);
+	cout << s.isPalindrome(head) << endl;
+	//ListNode* res = s.isPalindrome(head);
 	
-	p = res;
-	cout << "[ ";
-	while (p)
-	{
-		cout << p->val << " ";
-		p = p->next;
-	}
-	cout << "]" << endl;
+	//p = res;
+	//cout << "[ ";
+	//while (p)
+	//{
+		//cout << p->val << " ";
+		//p = p->next;
+	//}
+	//cout << "]" << endl;
 
 	return 0;
 }
