@@ -2,7 +2,7 @@
  * Filename: addTwoNumbers.cpp
  * Author: Jun Xu
  * Email: junx@cs.bu.edu
- * Created Time: Sat 26 Dec 2015 09:46:55 PM EST
+ * Created Time: Thu 21 Jan 2016 08:30:12 PM EST
  * Description: 
  */
 
@@ -19,41 +19,41 @@ using namespace std;
  * };
  */
 
-class Solution {
+class Solution
+{
 	public:
 		ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 		{
 			ListNode* res = new ListNode(0);
 			ListNode* p = res;
-			int sum = 0;
 			int carry = 0;
-
-			while (l1 != NULL && l2 != NULL)
+			
+			while (l1 && l2)
 			{
-				sum = l1->val + l2->val + carry;
-				carry = sum / 10;
-				p->next = new ListNode(sum % 10);
-				p = p->next;
+				carry += l1->val + l2->val;
+				p->next = new ListNode(carry % 10);
+				carry /= 10;
 				l1 = l1->next;
 				l2 = l2->next;
+				p = p->next;
 			}
 
-			while (l1 != NULL)
+			while (l1)
 			{
-				sum = l1->val + carry;
-				carry = sum / 10;
-				p->next = new ListNode(sum % 10);
-				p = p->next;
+				carry += l1->val;
+				p->next = new ListNode(carry % 10);
+				carry /= 10;
 				l1 = l1->next;
+				p = p->next;
 			}
 
-			while (l2 != NULL)
+			while (l2)
 			{
-				sum = l2->val + carry;
-				carry = sum / 10;
-				p->next = new ListNode(sum % 10);
-				p = p->next;
+				carry += l2->val;
+				p->next = new ListNode(carry % 10);
+				carry /= 10;
 				l2 = l2->next;
+				p = p->next;
 			}
 
 			if (carry)

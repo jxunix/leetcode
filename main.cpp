@@ -5,6 +5,7 @@
  * Created Time: Thu 23 Jul 2015 11:09:51 AM EDT
  */
 
+#include <climits>
 #include <iostream>
 #include <map>
 #include <string>
@@ -16,7 +17,7 @@
 #include "listNode.hpp"
 #include "random_list_node.hpp"
 #include "tree_node.hpp"
-#include "palindromeLinkedList.cpp"
+#include "permutationSequence.cpp"
 
 using namespace std;
 
@@ -28,32 +29,9 @@ Solution s;
 
 int main()
 {
-	ListNode* head = new ListNode(1);
-	head->next = new ListNode(0);
-	head->next->next = new ListNode(0);
-	//head->next->next->next = new ListNode(4);
-	//head->next->next->next->next = new ListNode(5);
-
-	ListNode* p = head;
-	cout << "[ ";
-	while (p)
-	{
-		cout << p->val << " ";
-		p = p->next;
-	}
-	cout << "]" << endl;
-
-	cout << s.isPalindrome(head) << endl;
-	//ListNode* res = s.isPalindrome(head);
-	
-	//p = res;
-	//cout << "[ ";
-	//while (p)
-	//{
-		//cout << p->val << " ";
-		//p = p->next;
-	//}
-	//cout << "]" << endl;
+	int n = 3;
+	int k = 5;
+	cout << s.getPermutation(n, k) << endl;
 
 	return 0;
 }
